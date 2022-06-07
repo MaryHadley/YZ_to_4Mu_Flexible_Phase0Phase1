@@ -23,13 +23,13 @@ options.register("isMC",
             
 )
 
-options.register("triggerYear",
-                2018,
-                VarParsing.VarParsing.multiplicity.singleton,
-                VarParsing.VarParsing.varType.int,
-                "Select trigger year to use. Options are 2016, 2017, or 2018. Defaults to 2018."
-
-)
+# options.register("triggerYear",
+#                 2018,
+#                 VarParsing.VarParsing.multiplicity.singleton,
+#                 VarParsing.VarParsing.varType.int,
+#                 "Select trigger year to use. Options are 2016, 2017, or 2018. Defaults to 2018."
+# 
+# )
 
 
 # This needs to go here, after we have defined all the options!
@@ -49,7 +49,7 @@ process.ZmuonAnalyzer = cms.EDAnalyzer("ZmuonAnalyzer",
    rho     = cms.InputTag("fixedGridRhoFastjetAll"), #Median energy density, see: https://arxiv.org/pdf/0707.1378.pdf
   #Might add Pileup here later if I think it is something we might change ever, but at the moment is hard-coded in the analyzer
    isMC   = cms.bool(options.isMC),
-   triggerYear = cms.int32(options.triggerYear),
+ #  triggerYear = cms.int32(options.triggerYear),
 )
 
 if options.applyZmuonFilter:
@@ -101,10 +101,10 @@ process.source = cms.Source("PoolSource",
 #                                            "file:../miniAOD_Marys_LHE.root",
                                             #  "file:Y1S3S11_Z_4Mu_HO_SPS_MiniAOD_shortTest_11_June_2021.root",
    #                                         "file:Y2S3S11_Z_4Mu_HO_SPS_MiniAOD.root",
-                                           "file:MC_DPS_2016_YZ_00623223-2B20-AB42-A456-670F9B3875D5.root", 
+                                           #"file:MC_DPS_2016_YZ_00623223-2B20-AB42-A456-670F9B3875D5.root", 
                                           # "file:MC_DPS_2016_APV_24653D5E-1FF7-274F-A4B8-BB3E4426E612.root",
                                            #"file:MC_DPS_2017_YZ_070452D8-AA0E-7345-B1A4-F5443D1227C1.root",
-                                          #"file:MC_DPS_2018_YZ_04A4F969-2F02-F24D-9BA7-2FAB6D708CB6.root",
+                                          "file:MC_DPS_2018_YZ_04A4F969-2F02-F24D-9BA7-2FAB6D708CB6.root",
                                            #'file:14907725-2B14-B245-B076-5B04C5C36D55.root',
       #                                     'file:Y3S3S11_Z_4Mu_HO_SPS_MiniAOD.root',
                                            #'file:Run2018D_testFiles/file1_BB04A3C7-E0C0-EF46-B787-3C6095D1465A.root',
@@ -157,7 +157,7 @@ input=cms.untracked.int32(-1)
 )
 
 process.TFileService = cms.Service("TFileService",
-   fileName = cms.string("ZYto4Mu_Zto4Mu_pTCut3_Bjorn_18May2022_MC_inputFileIs_MC_DPS_2016_YZ_00623223-2B20-AB42-A456-670F9B3875D5.root")
+   fileName = cms.string("ZYto4Mu_Zto4Mu_pTCut3_Bjorn_7May2022_MC_Brux_inputFileIs_MC_DPS_2018_YZ_04A4F969-2F02-F24D-9BA7-2FAB6D708CB6_wildCard.root")
 )
 
 #process.maxEvents.input = 1000
@@ -202,7 +202,7 @@ process.load('Configuration.StandardSequences.FrontierConditions_GlobalTag_condD
 from Configuration.AlCa.GlobalTag_condDBv2 import GlobalTag
 #process.GlobalTag = GlobalTag(process.GlobalTag, 'auto:run2_data') #data, all 3 years
 #process.GlobalTag = GlobalTag(process.GlobalTag, 'auto:run2_mc_pre_vfp') # 2016 pre VFP change MC
-process.GlobalTag = GlobalTag(process.GlobalTag, 'auto:run2_mc') #2016 post VFP change MC
+#process.GlobalTag = GlobalTag(process.GlobalTag, 'auto:run2_mc') #2016 post VFP change MC
 #process.GlobalTag = GlobalTag(process.GlobalTag, '106X_mc2017_realistic_v8') # 2017 MC
-#process.GlobalTag = GlobalTag(process.GlobalTag, '106X_upgrade2018_realistic_v15_L1v1') #2018 MC
+process.GlobalTag = GlobalTag(process.GlobalTag, '106X_upgrade2018_realistic_v15_L1v1') #2018 MC
 print "GlobalTag = ", str(process.GlobalTag.globaltag).split("'")[1]

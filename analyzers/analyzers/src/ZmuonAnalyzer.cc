@@ -101,7 +101,7 @@ private:
    
    //bool use2018Triggers, use2017Triggers, use2016Triggers;
    
-   int triggerYear;
+//   int triggerYear;
    
    int PU, PU_True;
    
@@ -326,7 +326,7 @@ ZmuonAnalyzer::ZmuonAnalyzer(const edm::ParameterSet& iConfig)
 
    
    isMC = iConfig.getParameter<bool>("isMC"); // ***** MC *** gets read in from ZmuonAnalyzer_cfg!
-   triggerYear = iConfig.getParameter<int>("triggerYear");
+//   triggerYear = iConfig.getParameter<int>("triggerYear");
    
    
    edm::Service<TFileService> fs;
@@ -909,24 +909,24 @@ void ZmuonAnalyzer::analyze(const edm::Event& iEvent, const edm::EventSetup& iSe
    bool event_fails_trigger = true; //defaults to true 
    
    //bools for 2016 triggers
-   bool singleMu2016Trig1Fired = false;
-   bool singleMu2016Trig2Fired = false;
-   bool doubleMu2016Trig1Fired = false;
-   bool doubleMu2016Trig2Fired = false;
-   bool tripleMu2016Trig1Fired = false; 
-   
-   //bools for 2017 triggers
-   bool singleMu2017Trig1Fired = false;
-   bool doubleMu2017Trig1Fired = false; 
-   bool tripleMu2017Trig1Fired = false;
-   bool tripleMu2017Trig2Fired = false;
-   
-   //bools for 2018 triggers
-   bool singleMu2018Trig1Fired = false;
-   bool doubleMu2018Trig1Fired = false; 
-   bool doubleMu2018Trig2Fired = false; 
-   bool tripleMu2018Trig1Fired = false;
-   bool tripleMu2018Trig2Fired = false; 
+ //   bool singleMu2016Trig1Fired = false;
+//    bool singleMu2016Trig2Fired = false;
+//    bool doubleMu2016Trig1Fired = false;
+//    bool doubleMu2016Trig2Fired = false;
+//    bool tripleMu2016Trig1Fired = false; 
+//    
+//    //bools for 2017 triggers
+//    bool singleMu2017Trig1Fired = false;
+//    bool doubleMu2017Trig1Fired = false; 
+//    bool tripleMu2017Trig1Fired = false;
+//    bool tripleMu2017Trig2Fired = false;
+//    
+//    //bools for 2018 triggers
+//    bool singleMu2018Trig1Fired = false;
+//    bool doubleMu2018Trig1Fired = false; 
+//    bool doubleMu2018Trig2Fired = false; 
+//    bool tripleMu2018Trig1Fired = false;
+//    bool tripleMu2018Trig2Fired = false; 
    
    
    
@@ -968,159 +968,159 @@ void ZmuonAnalyzer::analyze(const edm::Event& iEvent, const edm::EventSetup& iSe
       }
    }
    
-  //  for (unsigned int i= 0, n = triggerlist.size(); i < n; i++) {
-//        std::cout << triggerlist.at(i) << std::endl;
-//        std::string str (triggerlist.at(i));
-//        std::cout << "str is:" << str << std::endl;
-//        std::string str2 ("Ele");
-//        std::string str3 ("Mu");
-//        std::size_t foundEle = str.find(str2);
-//        std::size_t foundMu  = str.find(str3);
-//        if (foundEle==std::string::npos && foundMu!=std::string::npos){ //avoid mixed e/mu triggers
-//           event_fails_trigger=false;
-//           std::cout << "Event passed trigger!" << std::endl;
-//           break; //as soon as we found that it passed, get out of the loop!
-//        
-//        } 
-//    
-//    }
-   
-    for (unsigned int i= 0, n = triggerlist.size(); i < n; i++) {
+   for (unsigned int i= 0, n = triggerlist.size(); i < n; i++) {
        std::cout << triggerlist.at(i) << std::endl;
        std::string str (triggerlist.at(i));
        std::cout << "str is:" << str << std::endl;
-       if (triggerYear == 2016){
-         std::string str2 ("HLT_Mu17_TrkIsoVVL_Mu8_TrkIsoVVL_DZ_v"); //call this DoubleMu2016Trig1
-         std::string str3 ("HLT_Mu17_TrkIsoVVL_TkMu8_TrkIsoVVL_DZ_v"); //call this DoubleMu2016Trig2
-         std::string str4 ("HLT_IsoMu24_v"); //call this SingleMu2016Trig1
-         std::string str5 ("HLT_IsoTkMu24_v"); //call this SingleMu2016Trig2
-         std::string str5a ("HLT_TripleMu_12_10_5_v"); //call this TripleMu2016Trig1
-         
-         std::size_t foundDoubleMu2016Trig1 = str.find(str2);
-         std::size_t foundDoubleMu2016Trig2 = str.find(str3);
-         std::size_t foundSingleMu2016Trig1 = str.find(str4);
-         std::size_t foundSingleMu2016Trig2 = str.find(str5);
-         std::size_t foundTripleMu2016Trig1 = str.find(str5a);
-   
-         
-         if (foundSingleMu2016Trig1 != std::string::npos){
-           singleMu2016Trig1Fired = true;
-           std::cout << "singleMu2016Trig1Fired:  "  << singleMu2016Trig1Fired << std::endl; 
-         }
-         
-         if (foundSingleMu2016Trig2 != std::string::npos){
-           singleMu2016Trig2Fired = true;
-           std::cout << "singleMu2016Trig2Fired:  " << singleMu2016Trig2Fired << std::endl; 
-         }
-         
-         if (foundDoubleMu2016Trig1 != std::string::npos){
-           doubleMu2016Trig1Fired = true;
-           std::cout << "doubleMu2016Trig1Fired:  " << doubleMu2016Trig1Fired << std::endl; 
-         }
-         
-         if (foundDoubleMu2016Trig2 != std::string::npos){
-           doubleMu2016Trig2Fired = true;
-           std::cout << "doubleMu2016Trig2Fired:  " << doubleMu2016Trig2Fired << std::endl; 
-         }
-         
-         if (foundTripleMu2016Trig1 != std::string::npos){
-           tripleMu2016Trig1Fired = true;
-           std::cout << "tripleMu2016Trig1Fired:  " << tripleMu2016Trig1Fired << std::endl; 
-         }
-         
-//         if (foundDoubleMu2016Trig1 !=std::string::npos || foundDoubleMu2016Trig2 !=std::string::npos){ //OR of both DoubleMu trigs that we are considering
-         if (foundSingleMu2016Trig1 != std::string::npos ||  foundSingleMu2016Trig2 != std::string::npos || foundDoubleMu2016Trig1 !=std::string::npos || foundDoubleMu2016Trig2 !=std::string::npos || foundTripleMu2016Trig1 != std::string::npos){
-           event_fails_trigger=false;
-           std::cout << "Event passed 2016 trigger!" << std::endl;
-           break; //as soon as we found that it passed, get out of the loop!
-         }
-       } 
-       if (triggerYear == 2017){
-         std::string str6 ("HLT_Mu17_TrkIsoVVL_Mu8_TrkIsoVVL_DZ_Mass8_v"); //call this DoubleMu2017Trig1
-         std::string str7 ("HLT_IsoMu27_v"); //call this SingleMu2017Trig1
-         std::string str7a ("HLT_TripleMu_12_10_5_v"); //call this TripleMu2017Trig1
-         std::string str7b ("HLT_TripleMu_10_5_5_DZ_v"); //call this TripleMu2017Trig2 
-         
-         std::size_t foundDoubleMu2017Trig1 = str.find(str6);
-         std::size_t foundSingleMu2017Trig1 = str.find(str7);
-         std::size_t foundTripleMu2017Trig1 = str.find(str7a);
-         std::size_t foundTripleMu2017Trig2 = str.find(str7b);
-         
-         if (foundSingleMu2017Trig1 != std::string::npos){
-           singleMu2017Trig1Fired = true;
-           std::cout << "singleMu2017Trig1Fired:  " << singleMu2017Trig1Fired << std::endl; 
-         }
-         
-         if (foundDoubleMu2017Trig1 != std::string::npos){
-           doubleMu2017Trig1Fired = true;
-           std::cout << "doubleMu2017Trig1Fired:  " << doubleMu2017Trig1Fired << std::endl; 
-         }
-         
-         if (foundTripleMu2017Trig1 != std::string::npos){
-           tripleMu2017Trig1Fired = true;
-           std::cout << "tripleMu2017Trig1Fired:  " << tripleMu2017Trig1Fired << std::endl;
-         }
-         
-          if (foundTripleMu2017Trig2 != std::string::npos){
-           tripleMu2017Trig2Fired = true;
-           std::cout << "tripleMu2017Trig2Fired:  " << tripleMu2017Trig2Fired << std::endl;
-         }
-         
-         if (foundSingleMu2017Trig1 != std::string::npos || foundDoubleMu2017Trig1 != std::string::npos || foundTripleMu2017Trig1 != std::string::npos || foundTripleMu2017Trig2 != std::string::npos){
-           event_fails_trigger=false;
-           std::cout << "Event passed 2017 trigger!" << std::endl;
-           break; 
-         }
+       std::string str2 ("Ele");
+       std::string str3 ("Mu");
+       std::size_t foundEle = str.find(str2);
+       std::size_t foundMu  = str.find(str3);
+       if (foundEle==std::string::npos && foundMu!=std::string::npos){ //avoid mixed e/mu triggers
+          event_fails_trigger=false;
+          std::cout << "Event passed trigger!" << std::endl;
+          break; //as soon as we found that it passed, get out of the loop!
        
-       }
-       if (triggerYear == 2018){
-         std::string str8 ("HLT_Mu17_TrkIsoVVL_Mu8_TrkIsoVVL_DZ_Mass3p8_v"); //call this DoubleMu2018Trig1
-         std::string str8a ("HLT_Mu17_TrkIsoVVL_Mu8_TrkIsoVVL_DZ_Mass8_v"); // call this DoubleMu2018Trig2
-         std::string str9 ("HLT_IsoMu24_v"); // call this SingleMu2018Trig1
-         std::string str9a ("HLT_TripleMu_12_10_5_v"); // call this TripleMu2018Trig1
-         std::string str9b ("HLT_TripleMu_10_5_5_DZ_v"); // call this TripleMu2018Trig2
-         
-         std::size_t foundDoubleMu2018Trig1 = str.find(str8);
-         std::size_t foundDoubleMu2018Trig2 = str.find(str8a);
-         std::size_t foundSingleMu2018Trig1 = str.find(str9);
-         std::size_t foundTripleMu2018Trig1 = str.find(str9a);
-         std::size_t foundTripleMu2018Trig2 = str.find(str9b);
-         
-         if (foundSingleMu2018Trig1 != std::string::npos){
-           singleMu2018Trig1Fired = true;
-           std::cout << "singleMu2018Trig1Fired:  " << singleMu2018Trig1Fired << std::endl; 
-         }
-         
-         if (foundDoubleMu2018Trig1 != std::string::npos){
-           doubleMu2018Trig1Fired = true;
-           std::cout << "doubleMu2018Trig1Fired:  " << doubleMu2018Trig1Fired << std::endl; 
-         }
-         
-         if (foundDoubleMu2018Trig2 != std::string::npos){
-           doubleMu2018Trig2Fired = true;
-           std::cout << "doubleMu2018Trig2Fired:  " << doubleMu2018Trig2Fired << std::endl;
-         }
-         
-         if (foundTripleMu2018Trig1 != std::string::npos){
-           tripleMu2018Trig1Fired = true;
-           std::cout << "tripleMu2018Trig1Fired:  " << tripleMu2018Trig1Fired << std::endl; 
-         }
-         
-         if (foundTripleMu2018Trig2 != std::string::npos){
-           tripleMu2018Trig2Fired = true;
-           std::cout << "tripleMu2018Trig2Fired:  " << tripleMu2018Trig2Fired << std::endl; 
-         }
-         
- //        if (foundDoubleMu2018Trig1 != std::string::npos){
-         if (foundSingleMu2018Trig1 != std::string::npos || foundDoubleMu2018Trig1 != std::string::npos || foundDoubleMu2018Trig2 != std::string::npos || foundTripleMu2018Trig1 != std::string::npos || foundTripleMu2018Trig2 != std::string::npos){
-           event_fails_trigger = false;
-           std::cout << "Event passed 2018 trigger!" << std::endl;
-           break; 
-         
-         }
-    
-    }
+       } 
+   
    }
+   
+    // for (unsigned int i= 0, n = triggerlist.size(); i < n; i++) {
+//        std::cout << triggerlist.at(i) << std::endl;
+//        std::string str (triggerlist.at(i));
+//        std::cout << "str is:" << str << std::endl;
+//        if (triggerYear == 2016){
+//          std::string str2 ("HLT_Mu17_TrkIsoVVL_Mu8_TrkIsoVVL_DZ_v"); //call this DoubleMu2016Trig1
+//          std::string str3 ("HLT_Mu17_TrkIsoVVL_TkMu8_TrkIsoVVL_DZ_v"); //call this DoubleMu2016Trig2
+//          std::string str4 ("HLT_IsoMu24_v"); //call this SingleMu2016Trig1
+//          std::string str5 ("HLT_IsoTkMu24_v"); //call this SingleMu2016Trig2
+//          std::string str5a ("HLT_TripleMu_12_10_5_v"); //call this TripleMu2016Trig1
+//          
+//          std::size_t foundDoubleMu2016Trig1 = str.find(str2);
+//          std::size_t foundDoubleMu2016Trig2 = str.find(str3);
+//          std::size_t foundSingleMu2016Trig1 = str.find(str4);
+//          std::size_t foundSingleMu2016Trig2 = str.find(str5);
+//          std::size_t foundTripleMu2016Trig1 = str.find(str5a);
+//    
+//          
+//          if (foundSingleMu2016Trig1 != std::string::npos){
+//            singleMu2016Trig1Fired = true;
+//            std::cout << "singleMu2016Trig1Fired:  "  << singleMu2016Trig1Fired << std::endl; 
+//          }
+//          
+//          if (foundSingleMu2016Trig2 != std::string::npos){
+//            singleMu2016Trig2Fired = true;
+//            std::cout << "singleMu2016Trig2Fired:  " << singleMu2016Trig2Fired << std::endl; 
+//          }
+//          
+//          if (foundDoubleMu2016Trig1 != std::string::npos){
+//            doubleMu2016Trig1Fired = true;
+//            std::cout << "doubleMu2016Trig1Fired:  " << doubleMu2016Trig1Fired << std::endl; 
+//          }
+//          
+//          if (foundDoubleMu2016Trig2 != std::string::npos){
+//            doubleMu2016Trig2Fired = true;
+//            std::cout << "doubleMu2016Trig2Fired:  " << doubleMu2016Trig2Fired << std::endl; 
+//          }
+//          
+//          if (foundTripleMu2016Trig1 != std::string::npos){
+//            tripleMu2016Trig1Fired = true;
+//            std::cout << "tripleMu2016Trig1Fired:  " << tripleMu2016Trig1Fired << std::endl; 
+//          }
+//          
+// //         if (foundDoubleMu2016Trig1 !=std::string::npos || foundDoubleMu2016Trig2 !=std::string::npos){ //OR of both DoubleMu trigs that we are considering
+//          if (foundSingleMu2016Trig1 != std::string::npos ||  foundSingleMu2016Trig2 != std::string::npos || foundDoubleMu2016Trig1 !=std::string::npos || foundDoubleMu2016Trig2 !=std::string::npos || foundTripleMu2016Trig1 != std::string::npos){
+//            event_fails_trigger=false;
+//            std::cout << "Event passed 2016 trigger!" << std::endl;
+//            break; //as soon as we found that it passed, get out of the loop!
+//          }
+//        } 
+//        if (triggerYear == 2017){
+//          std::string str6 ("HLT_Mu17_TrkIsoVVL_Mu8_TrkIsoVVL_DZ_Mass8_v"); //call this DoubleMu2017Trig1
+//          std::string str7 ("HLT_IsoMu27_v"); //call this SingleMu2017Trig1
+//          std::string str7a ("HLT_TripleMu_12_10_5_v"); //call this TripleMu2017Trig1
+//          std::string str7b ("HLT_TripleMu_10_5_5_DZ_v"); //call this TripleMu2017Trig2 
+//          
+//          std::size_t foundDoubleMu2017Trig1 = str.find(str6);
+//          std::size_t foundSingleMu2017Trig1 = str.find(str7);
+//          std::size_t foundTripleMu2017Trig1 = str.find(str7a);
+//          std::size_t foundTripleMu2017Trig2 = str.find(str7b);
+//          
+//          if (foundSingleMu2017Trig1 != std::string::npos){
+//            singleMu2017Trig1Fired = true;
+//            std::cout << "singleMu2017Trig1Fired:  " << singleMu2017Trig1Fired << std::endl; 
+//          }
+//          
+//          if (foundDoubleMu2017Trig1 != std::string::npos){
+//            doubleMu2017Trig1Fired = true;
+//            std::cout << "doubleMu2017Trig1Fired:  " << doubleMu2017Trig1Fired << std::endl; 
+//          }
+//          
+//          if (foundTripleMu2017Trig1 != std::string::npos){
+//            tripleMu2017Trig1Fired = true;
+//            std::cout << "tripleMu2017Trig1Fired:  " << tripleMu2017Trig1Fired << std::endl;
+//          }
+//          
+//           if (foundTripleMu2017Trig2 != std::string::npos){
+//            tripleMu2017Trig2Fired = true;
+//            std::cout << "tripleMu2017Trig2Fired:  " << tripleMu2017Trig2Fired << std::endl;
+//          }
+//          
+//          if (foundSingleMu2017Trig1 != std::string::npos || foundDoubleMu2017Trig1 != std::string::npos || foundTripleMu2017Trig1 != std::string::npos || foundTripleMu2017Trig2 != std::string::npos){
+//            event_fails_trigger=false;
+//            std::cout << "Event passed 2017 trigger!" << std::endl;
+//            break; 
+//          }
+//        
+//        }
+//        if (triggerYear == 2018){
+//          std::string str8 ("HLT_Mu17_TrkIsoVVL_Mu8_TrkIsoVVL_DZ_Mass3p8_v"); //call this DoubleMu2018Trig1
+//          std::string str8a ("HLT_Mu17_TrkIsoVVL_Mu8_TrkIsoVVL_DZ_Mass8_v"); // call this DoubleMu2018Trig2
+//          std::string str9 ("HLT_IsoMu24_v"); // call this SingleMu2018Trig1
+//          std::string str9a ("HLT_TripleMu_12_10_5_v"); // call this TripleMu2018Trig1
+//          std::string str9b ("HLT_TripleMu_10_5_5_DZ_v"); // call this TripleMu2018Trig2
+//          
+//          std::size_t foundDoubleMu2018Trig1 = str.find(str8);
+//          std::size_t foundDoubleMu2018Trig2 = str.find(str8a);
+//          std::size_t foundSingleMu2018Trig1 = str.find(str9);
+//          std::size_t foundTripleMu2018Trig1 = str.find(str9a);
+//          std::size_t foundTripleMu2018Trig2 = str.find(str9b);
+//          
+//          if (foundSingleMu2018Trig1 != std::string::npos){
+//            singleMu2018Trig1Fired = true;
+//            std::cout << "singleMu2018Trig1Fired:  " << singleMu2018Trig1Fired << std::endl; 
+//          }
+//          
+//          if (foundDoubleMu2018Trig1 != std::string::npos){
+//            doubleMu2018Trig1Fired = true;
+//            std::cout << "doubleMu2018Trig1Fired:  " << doubleMu2018Trig1Fired << std::endl; 
+//          }
+//          
+//          if (foundDoubleMu2018Trig2 != std::string::npos){
+//            doubleMu2018Trig2Fired = true;
+//            std::cout << "doubleMu2018Trig2Fired:  " << doubleMu2018Trig2Fired << std::endl;
+//          }
+//          
+//          if (foundTripleMu2018Trig1 != std::string::npos){
+//            tripleMu2018Trig1Fired = true;
+//            std::cout << "tripleMu2018Trig1Fired:  " << tripleMu2018Trig1Fired << std::endl; 
+//          }
+//          
+//          if (foundTripleMu2018Trig2 != std::string::npos){
+//            tripleMu2018Trig2Fired = true;
+//            std::cout << "tripleMu2018Trig2Fired:  " << tripleMu2018Trig2Fired << std::endl; 
+//          }
+//          
+//  //        if (foundDoubleMu2018Trig1 != std::string::npos){
+//          if (foundSingleMu2018Trig1 != std::string::npos || foundDoubleMu2018Trig1 != std::string::npos || foundDoubleMu2018Trig2 != std::string::npos || foundTripleMu2018Trig1 != std::string::npos || foundTripleMu2018Trig2 != std::string::npos){
+//            event_fails_trigger = false;
+//            std::cout << "Event passed 2018 trigger!" << std::endl;
+//            break; 
+//          
+//          }
+//     
+//     }
+//    }
 
 // ******
 // VERTEX
@@ -1748,264 +1748,264 @@ void ZmuonAnalyzer::analyze(const edm::Event& iEvent, const edm::EventSetup& iSe
                 // https://stackoverflow.com/questions/571394/how-to-find-out-if-an-item-is-present-in-a-stdvector
                 //https://www.techiedelight.com/check-vector-contains-given-element-cpp/
                  
-                 double trigMatchDRCut = 0.01; //I set this based on looking at the output of the trigDR histo 0.1 is definitely too big, might still tune this 0.01
+              //   double trigMatchDRCut = 0.01; //I set this based on looking at the output of the trigDR histo 0.1 is definitely too big, might still tune this 0.01
 //               //  pat::TriggerObjectStandAlone TO;
 //                 quadHasHowManyTrigMatches.clear(); //I think is where the bug was, I think this line always needs to be commented out and it should be cleared along with all the other stuff (around line 496 in this case, search "sanity check" to find it)
-                 int trigMatched = 0;
-                 std::vector<int> minElementIndexVec;
-                 minElementIndexVec.clear();
-                 std::cout << "Looking at trigger to reco matching module" << std::endl;
-                 for (unsigned int iTO = 0; iTO < triggerObjects->size(); iTO++){
-//                 //  std::cout << "triggerObjects->size()  " << triggerObjects->size() << std::endl;
-                   pat::TriggerObjectStandAlone TO;
-                   TO = triggerObjects->at(iTO);
-                   TO.unpackPathNames(names);
-    // }     //extra bracket that I put in now to keep all the nested loops happy, I may kill it when I eventually find out where the original enclosing bracket was       
-//                  //Closely adapted from https://github.com/DryRun/BParkingNANO/blob/master/BParkingNano/plugins/MuonTriggerSelector.cc#L115-L123
-                  TO.unpackFilterLabels(iEvent, *triggerBits);
-                 
-                 //  if(TMath::Abs(TO.pdgId()) != 13) continue; //make sure you are looking at TO muons!
+         //        int trigMatched = 0;
+          //       std::vector<int> minElementIndexVec;
+           //      minElementIndexVec.clear();
+           //      std::cout << "Looking at trigger to reco matching module" << std::endl;
+          //        for (unsigned int iTO = 0; iTO < triggerObjects->size(); iTO++){
+// //                 //  std::cout << "triggerObjects->size()  " << triggerObjects->size() << std::endl;
+//                    pat::TriggerObjectStandAlone TO;
+//                    TO = triggerObjects->at(iTO);
+//                    TO.unpackPathNames(names);
+//     // }     //extra bracket that I put in now to keep all the nested loops happy, I may kill it when I eventually find out where the original enclosing bracket was       
+// //                  //Closely adapted from https://github.com/DryRun/BParkingNANO/blob/master/BParkingNano/plugins/MuonTriggerSelector.cc#L115-L123
+//                   TO.unpackFilterLabels(iEvent, *triggerBits);
+//                  
+//                  //  if(TMath::Abs(TO.pdgId()) != 13) continue; //make sure you are looking at TO muons!
+// //                   bool isTriggerMuon = false;
+// //                   for (unsigned h = 0; h < TO.filterIds().size(); ++h){
+// // 	                if(TO.filterIds()[h] == 83){ //83 = muon //see: https://github.com/cms-sw/cmssw/blob/master/DataFormats/HLTReco/interface/TriggerTypeDefs.h
+// // 	                  isTriggerMuon = true; 
+// // 	                  break;
+// // 	                }
+// // 	              }
+//  //Thanks to Sam Harper for his help with this section. See email and mattermost for discussions with him that greatly influenced the structure of this portion. Used his code, the printPathFilters.py, to get the filterNames. Remember to run the printPathFilters.py as "python3 printPathFilters.py <nameOfFileYouAreExaming>" (You need to expressly say python3)
 //                   bool isTriggerMuon = false;
-//                   for (unsigned h = 0; h < TO.filterIds().size(); ++h){
-// 	                if(TO.filterIds()[h] == 83){ //83 = muon //see: https://github.com/cms-sw/cmssw/blob/master/DataFormats/HLTReco/interface/TriggerTypeDefs.h
-// 	                  isTriggerMuon = true; 
-// 	                  break;
-// 	                }
-// 	              }
- //Thanks to Sam Harper for his help with this section. See email and mattermost for discussions with him that greatly influenced the structure of this portion. Used his code, the printPathFilters.py, to get the filterNames. Remember to run the printPathFilters.py as "python3 printPathFilters.py <nameOfFileYouAreExaming>" (You need to expressly say python3)
-                  bool isTriggerMuon = false;
-                  for (unsigned h = 0; h < TO.filterLabels().size(); h++){
-                    std::string filterName = TO.filterLabels()[h];
-                    
-                    if (triggerYear == 2016) {
-                      if (singleMu2016Trig1Fired){
-                        if (filterName.find("hltL3crIsoL1sMu22L1f0L2f10QL3f24QL3trkIsoFiltered0p09") != std::string::npos ){
-                          isTriggerMuon = true;
-                          std::cout << "Found a filterName match for singleMu2016Trig1Fired" << std::endl; 
-                          break;
-                        }
-                      }
-                      if (singleMu2016Trig2Fired){
-                        if (filterName.find("hltL3fL1sMu22L1f0Tkf24QL3trkIsoFiltered0p09") != std::string::npos ){
-                          isTriggerMuon = true; 
-                          std::cout << "Found a filterName match for singleMu2016Trig2Fired" << std::endl;
-                          break;
-                        }
-                      }
-                      if (doubleMu2016Trig1Fired){
-                        if (filterName.find("hltDiMuonGlb17Glb8RelTrkIsoFiltered0p4DzFiltered0p2") != std::string::npos ){
-                          isTriggerMuon = true;
-                          std::cout << "Found a filterName match for doubleMu2016Trig1Fired" << std::endl; 
-                          break; 
-                        }
-                      }
-                      if (doubleMu2016Trig2Fired){
-                        if (filterName.find("hltDiMuonGlb17Trk8RelTrkIsoFiltered0p4DzFiltered0p2") != std::string::npos ){
-                          isTriggerMuon = true; 
-                          std::cout << "Found a filterName match for doubleMu2016Trig2Fired" << std::endl; 
-                          break; 
-                        }
-                      }
-                     
-                     if (tripleMu2016Trig1Fired){
-                       if (filterName.find("hltL1TripleMu553L2TriMuFiltered3L3TriMuFiltered12105") != std::string::npos){
-                         isTriggerMuon = true;
-                         std::cout << "Found a filterName match for tripleMu2016Trig1Fired" << std::endl;
-                         break;
-                       }
-                     } 
-                    
-                    }
-                    if (triggerYear == 2017){
-                      if (singleMu2017Trig1Fired){
-                        if (filterName.find("hltL3crIsoL1sMu22Or25L1f0L2f10QL3f27QL3trkIsoFiltered0p07") != std::string::npos){
-                          isTriggerMuon = true;
-                          std::cout << "Found a filterName match for singleMu2017Trig1Fired" << std::endl;
-                          break;
-                        }
-                      }
-                      if (doubleMu2017Trig1Fired){
-                        if (filterName.find("hltDiMuon178Mass8Filtered") != std::string::npos){
-                          isTriggerMuon = true;
-                          std::cout << "Found a filterName match for doubleMu2017Trig1Fired" << std::endl;
-                          break; 
-                        }
-                      }
-                      if (tripleMu2017Trig1Fired){
-                        if (filterName.find("hltL3fL1TripleMu553f0Filtered12105") != std::string::npos){
-                          isTriggerMuon = true;
-                          std::cout << "Found a filterName match for tripleMu2017Trig1Fired" << std::endl;
-                          break;
-                        }
-                      }
-                      if (tripleMu2017Trig2Fired){
-                        if (filterName.find("hltTripleMu555TripleDZ0p2") != std::string::npos){
-                          isTriggerMuon = true;
-                          std::cout << "Found a filterName match for tripleMu2017Trig2Fired" << std::endl;
-                          break; 
-                        }
-                      }
-                      
-                    }
-                    if (triggerYear == 2018){
-                      if (singleMu2018Trig1Fired){
-                        if (filterName.find("hltL3crIsoL1sSingleMu22L1f0L2f10QL3f24QL3trkIsoFiltered0p07") != std::string::npos){
-                          isTriggerMuon = true;
-                          std::cout << "Found a filterName match for singleMu2018Trig1Fired" << std::endl;
-                          break;
-                        }
-                      }
-                      if (doubleMu2018Trig1Fired){
-                        if (filterName.find("hltDiMuon178Mass3p8Filtered") != std::string::npos){
-                          isTriggerMuon = true;
-                          std::cout << "Found a filterName match for doubleMu2018Trig1Fired" << std::endl; 
-                          break;
-                        }
-                      }
-                      if (doubleMu2018Trig2Fired){
-                        if (filterName.find("hltDiMuon178Mass8Filtered") != std::string::npos){
-                          isTriggerMuon = true;
-                          std::cout << "Found a filterName match for doubleMu2018Trig2Fired" << std::endl; 
-                          break;
-                        }
-                      } 
-                      
-                      if (tripleMu2018Trig1Fired){
-                        if (filterName.find("hltL3fL1TripleMu553f0Filtered12105") != std::string::npos){
-                          isTriggerMuon = true;
-                          std::cout << "Found a filterName match for tripleMu2018Trig1Fired" << std::endl;
-                          break;
-                        }
-                      }
-                      if (tripleMu2018Trig2Fired){
-                        if (filterName.find("hltTripleMu555TripleDZ0p2") != std::string::npos){
-                          isTriggerMuon = true;
-                          std::cout << "Found a filterName match for tripleMu2018Trig2Fired" << std::endl; 
-                          break; 
-                        }
-                      }
-                      
-                    }
-                  
-                  }
-// 	                
- 	              if(!isTriggerMuon) continue;  
- 	               
-//                  
+//                   for (unsigned h = 0; h < TO.filterLabels().size(); h++){
+//                     std::string filterName = TO.filterLabels()[h];
+//                     
+//                     if (triggerYear == 2016) {
+//                       if (singleMu2016Trig1Fired){
+//                         if (filterName.find("hltL3crIsoL1sMu22L1f0L2f10QL3f24QL3trkIsoFiltered0p09") != std::string::npos ){
+//                           isTriggerMuon = true;
+//                           std::cout << "Found a filterName match for singleMu2016Trig1Fired" << std::endl; 
+//                           break;
+//                         }
+//                       }
+//                       if (singleMu2016Trig2Fired){
+//                         if (filterName.find("hltL3fL1sMu22L1f0Tkf24QL3trkIsoFiltered0p09") != std::string::npos ){
+//                           isTriggerMuon = true; 
+//                           std::cout << "Found a filterName match for singleMu2016Trig2Fired" << std::endl;
+//                           break;
+//                         }
+//                       }
+//                       if (doubleMu2016Trig1Fired){
+//                         if (filterName.find("hltDiMuonGlb17Glb8RelTrkIsoFiltered0p4DzFiltered0p2") != std::string::npos ){
+//                           isTriggerMuon = true;
+//                           std::cout << "Found a filterName match for doubleMu2016Trig1Fired" << std::endl; 
+//                           break; 
+//                         }
+//                       }
+//                       if (doubleMu2016Trig2Fired){
+//                         if (filterName.find("hltDiMuonGlb17Trk8RelTrkIsoFiltered0p4DzFiltered0p2") != std::string::npos ){
+//                           isTriggerMuon = true; 
+//                           std::cout << "Found a filterName match for doubleMu2016Trig2Fired" << std::endl; 
+//                           break; 
+//                         }
+//                       }
+//                      
+//                      if (tripleMu2016Trig1Fired){
+//                        if (filterName.find("hltL1TripleMu553L2TriMuFiltered3L3TriMuFiltered12105") != std::string::npos){
+//                          isTriggerMuon = true;
+//                          std::cout << "Found a filterName match for tripleMu2016Trig1Fired" << std::endl;
+//                          break;
+//                        }
+//                      } 
+//                     
+//                     }
+//                     if (triggerYear == 2017){
+//                       if (singleMu2017Trig1Fired){
+//                         if (filterName.find("hltL3crIsoL1sMu22Or25L1f0L2f10QL3f27QL3trkIsoFiltered0p07") != std::string::npos){
+//                           isTriggerMuon = true;
+//                           std::cout << "Found a filterName match for singleMu2017Trig1Fired" << std::endl;
+//                           break;
+//                         }
+//                       }
+//                       if (doubleMu2017Trig1Fired){
+//                         if (filterName.find("hltDiMuon178Mass8Filtered") != std::string::npos){
+//                           isTriggerMuon = true;
+//                           std::cout << "Found a filterName match for doubleMu2017Trig1Fired" << std::endl;
+//                           break; 
+//                         }
+//                       }
+//                       if (tripleMu2017Trig1Fired){
+//                         if (filterName.find("hltL3fL1TripleMu553f0Filtered12105") != std::string::npos){
+//                           isTriggerMuon = true;
+//                           std::cout << "Found a filterName match for tripleMu2017Trig1Fired" << std::endl;
+//                           break;
+//                         }
+//                       }
+//                       if (tripleMu2017Trig2Fired){
+//                         if (filterName.find("hltTripleMu555TripleDZ0p2") != std::string::npos){
+//                           isTriggerMuon = true;
+//                           std::cout << "Found a filterName match for tripleMu2017Trig2Fired" << std::endl;
+//                           break; 
+//                         }
+//                       }
+//                       
+//                     }
+//                     if (triggerYear == 2018){
+//                       if (singleMu2018Trig1Fired){
+//                         if (filterName.find("hltL3crIsoL1sSingleMu22L1f0L2f10QL3f24QL3trkIsoFiltered0p07") != std::string::npos){
+//                           isTriggerMuon = true;
+//                           std::cout << "Found a filterName match for singleMu2018Trig1Fired" << std::endl;
+//                           break;
+//                         }
+//                       }
+//                       if (doubleMu2018Trig1Fired){
+//                         if (filterName.find("hltDiMuon178Mass3p8Filtered") != std::string::npos){
+//                           isTriggerMuon = true;
+//                           std::cout << "Found a filterName match for doubleMu2018Trig1Fired" << std::endl; 
+//                           break;
+//                         }
+//                       }
+//                       if (doubleMu2018Trig2Fired){
+//                         if (filterName.find("hltDiMuon178Mass8Filtered") != std::string::npos){
+//                           isTriggerMuon = true;
+//                           std::cout << "Found a filterName match for doubleMu2018Trig2Fired" << std::endl; 
+//                           break;
+//                         }
+//                       } 
+//                       
+//                       if (tripleMu2018Trig1Fired){
+//                         if (filterName.find("hltL3fL1TripleMu553f0Filtered12105") != std::string::npos){
+//                           isTriggerMuon = true;
+//                           std::cout << "Found a filterName match for tripleMu2018Trig1Fired" << std::endl;
+//                           break;
+//                         }
+//                       }
+//                       if (tripleMu2018Trig2Fired){
+//                         if (filterName.find("hltTripleMu555TripleDZ0p2") != std::string::npos){
+//                           isTriggerMuon = true;
+//                           std::cout << "Found a filterName match for tripleMu2018Trig2Fired" << std::endl; 
+//                           break; 
+//                         }
+//                       }
+//                       
+//                     }
 //                   
-                  std::vector<double> tempDRVec;
-                  tempDRVec.clear();
-                  
-                  double PI = 3.14159265358979323846; //https://root.cern.ch/root/html524/TMath.html#TMath:Pi
-                  double TWO_PI = 6.28318530717958647692; //two times the pi as defined above
-                  
-                  double tempDEta1Sq = TMath::Power(TO.eta() - iM1->eta(),2);
-                  double tempDEta2Sq = TMath::Power(TO.eta() - iM2->eta(),2);
-                  double tempDEta3Sq = TMath::Power(TO.eta() - iM3->eta(),2);
-                  double tempDEta4Sq = TMath::Power(TO.eta() - iM4->eta(),2);
-                  
-                  //Thanks to David Yu for reminding me to put this protection in place
-                  double tempDPhi1 = fabs(TO.phi() - iM1->phi());
-                  while( tempDPhi1 > PI ){
-                    tempDPhi1 -= TWO_PI;
-                  }
-                  
-                  double tempDPhi2 = fabs(TO.phi() - iM2->phi());
-                  while( tempDPhi2 > PI ){
-                    tempDPhi2 -= TWO_PI;
-                  }
-                  
-                  double tempDPhi3 = fabs(TO.phi() - iM3->phi());
-                  while( tempDPhi3 > PI ){
-                    tempDPhi3 -= TWO_PI;
-                  }
-                  
-                  double tempDPhi4 = fabs(TO.phi() - iM4->phi());
-                  while( tempDPhi4 > PI ){
-                    tempDPhi4 -= TWO_PI;
-                  }
-                  
-                  
-                  double tempDPhi1Sq = TMath::Power(tempDPhi1,2);
-                  double tempDPhi2Sq = TMath::Power(tempDPhi2,2);
-                  double tempDPhi3Sq = TMath::Power(tempDPhi3,2);
-                  double tempDPhi4Sq = TMath::Power(tempDPhi4,2);
-                  
-                  double tempDR1 = TMath::Sqrt(tempDEta1Sq + tempDPhi1Sq);
-                  double tempDR2 = TMath::Sqrt(tempDEta2Sq + tempDPhi2Sq);
-                  double tempDR3 = TMath::Sqrt(tempDEta3Sq + tempDPhi3Sq);
-                  double tempDR4 = TMath::Sqrt(tempDEta4Sq + tempDPhi4Sq);
-//                   
-                  
-                   
-//            //       double tempDR1 = TMath::Sqrt(TMath::Power(TO.eta() - iM1->eta(),2) + TMath::Power(TO.phi() - iM1->phi(),2));
-//             //      double tempDR2 = TMath::Sqrt(TMath::Power(TO.eta() - iM2->eta(),2) + TMath::Power(TO.phi() - iM2->phi(),2));
-//               //    double tempDR3 = TMath::Sqrt(TMath::Power(TO.eta() - iM3->eta(),2) + TMath::Power(TO.phi() - iM3->phi(),2));
-//                 //  double tempDR4 = TMath::Sqrt(TMath::Power(TO.eta() - iM4->eta(),2) + TMath::Power(TO.phi() - iM4->phi(),2));
-//                  // std::cout << "Looking at trigger to reco matching module" << std::endl;
-//                   
-//                   
-                   std::cout << iTO << " " << tempDR1 << " " << tempDR2 << " " << tempDR3 << " " << tempDR4 << std::endl;
-                   std::cout << TO.pt() << " " << iM1->pt() << " " << iM2->pt() <<  " " << iM3->pt() <<  " " << iM4->pt() << std::endl;
-    
-                   tempDRVec.push_back(tempDR1); tempDRVec.push_back(tempDR2); tempDRVec.push_back(tempDR3); tempDRVec.push_back(tempDR4);
-//             //      std::cout << "tempDRVec.at(0)  " << tempDRVec.at(0) << std::endl; 
-                   int minElementIndex = std::min_element(tempDRVec.begin(),tempDRVec.end()) - tempDRVec.begin();
-                   std::cout << "minElementIndex  " << minElementIndex << std::endl;
-//                   
-                  std::cout << "Collection  " << TO.collection() << std::endl; //this shows us that the duplicates are likely the same muon that has passed
-//               //different triggers. The ones that print out as being the same are listed in each case as being part of a different collection each time
-//               //To handle the fact that there are duplicates, when we do the matching, we use the more intensive matching I've done below as opposed to the simpler
-//               // matching of  if (tempDR1<0.1 || tempDR2<0.1 || tempDR3<0.1 || tempDR4<0.1)
-//                  //               matched++;
-//                  //that was initially suggested by S.L.
-//               
-        
-                  double minElement = *std::min_element(tempDRVec.begin(), tempDRVec.end());
-                  std::cout << "minElement  " << minElement << std::endl;
-                  histContainer_["trigDR"]->Fill(minElement); //trigDR is a histo of the trig Mu-Reco Mu pair for a given quad that has the smallest separation in deltaR 
-                  
-//                   
-                  if (trigMatched == 0){
-                    if (minElement < trigMatchDRCut){
-                      trigMatched++;
-                      minElementIndexVec.push_back(minElementIndex);
-                      std::cout << "minElementIndexVec.at(0)  " << minElementIndexVec.at(0) << std::endl;
-                      std::cout << "trigMatched is   " << trigMatched << std::endl;
-                    }
-                  
-                  }
-        //        } //I just commented this out 
-//                   
-//                 //  std::vector<int> testVec;
-// //                  testVec.push_back(0);
-// //                  std::cout << "testVec.at(0)  " << testVec.at(0) << std::endl; 
-// //                  if ( std::count(testVec.begin(), testVec.end(), 1) ) {
-// //                     std::cout << "true, 1 is found" << std::endl;
-// //                  }
+//                   }
+// // 	                
+//  	              if(!isTriggerMuon) continue;  
+//  	               
 // //                  
-// //                  if ( std::count(testVec.begin(), testVec.end(), 1) == 0 ) {
-// //                     std::cout << "false, 1 is NOT found" << std::endl;
-// //                  }
-//                  
-//            //      std::cout << "minElementIndex is:  " <<  minElementIndex << std::endl;
-//            //      for (unsigned int i =0; i < minElementIndexVec.size(); i++){
-//              //      std::cout << "minElementIndexVec.at(i)  " << minElementIndexVec.at(i) << std::endl; 
-//              //    }
-//                  
-                 if (trigMatched > 0){
-               //    std::cout << "Entered test area" << std::endl;
-                   if ( std::count(minElementIndexVec.begin(), minElementIndexVec.end(), minElementIndex) == 0 ){
-                 //    std::cout << "Entered here line 1077" << std::endl; 
-                     if (minElement < trigMatchDRCut){
-                       trigMatched++;
-                       std::cout << "trigMatched > 1  " << trigMatched << std::endl; 
-                       minElementIndexVec.push_back(minElementIndex);
-                     }
-                   
-                   }
-                 }
-             }     
+// //                   
+//                   std::vector<double> tempDRVec;
+//                   tempDRVec.clear();
+//                   
+//                   double PI = 3.14159265358979323846; //https://root.cern.ch/root/html524/TMath.html#TMath:Pi
+//                   double TWO_PI = 6.28318530717958647692; //two times the pi as defined above
+//                   
+//                   double tempDEta1Sq = TMath::Power(TO.eta() - iM1->eta(),2);
+//                   double tempDEta2Sq = TMath::Power(TO.eta() - iM2->eta(),2);
+//                   double tempDEta3Sq = TMath::Power(TO.eta() - iM3->eta(),2);
+//                   double tempDEta4Sq = TMath::Power(TO.eta() - iM4->eta(),2);
+//                   
+//                   //Thanks to David Yu for reminding me to put this protection in place
+//                   double tempDPhi1 = fabs(TO.phi() - iM1->phi());
+//                   while( tempDPhi1 > PI ){
+//                     tempDPhi1 -= TWO_PI;
+//                   }
+//                   
+//                   double tempDPhi2 = fabs(TO.phi() - iM2->phi());
+//                   while( tempDPhi2 > PI ){
+//                     tempDPhi2 -= TWO_PI;
+//                   }
+//                   
+//                   double tempDPhi3 = fabs(TO.phi() - iM3->phi());
+//                   while( tempDPhi3 > PI ){
+//                     tempDPhi3 -= TWO_PI;
+//                   }
+//                   
+//                   double tempDPhi4 = fabs(TO.phi() - iM4->phi());
+//                   while( tempDPhi4 > PI ){
+//                     tempDPhi4 -= TWO_PI;
+//                   }
+//                   
+//                   
+//                   double tempDPhi1Sq = TMath::Power(tempDPhi1,2);
+//                   double tempDPhi2Sq = TMath::Power(tempDPhi2,2);
+//                   double tempDPhi3Sq = TMath::Power(tempDPhi3,2);
+//                   double tempDPhi4Sq = TMath::Power(tempDPhi4,2);
+//                   
+//                   double tempDR1 = TMath::Sqrt(tempDEta1Sq + tempDPhi1Sq);
+//                   double tempDR2 = TMath::Sqrt(tempDEta2Sq + tempDPhi2Sq);
+//                   double tempDR3 = TMath::Sqrt(tempDEta3Sq + tempDPhi3Sq);
+//                   double tempDR4 = TMath::Sqrt(tempDEta4Sq + tempDPhi4Sq);
+// //                   
+//                   
+//                    
+// //            //       double tempDR1 = TMath::Sqrt(TMath::Power(TO.eta() - iM1->eta(),2) + TMath::Power(TO.phi() - iM1->phi(),2));
+// //             //      double tempDR2 = TMath::Sqrt(TMath::Power(TO.eta() - iM2->eta(),2) + TMath::Power(TO.phi() - iM2->phi(),2));
+// //               //    double tempDR3 = TMath::Sqrt(TMath::Power(TO.eta() - iM3->eta(),2) + TMath::Power(TO.phi() - iM3->phi(),2));
+// //                 //  double tempDR4 = TMath::Sqrt(TMath::Power(TO.eta() - iM4->eta(),2) + TMath::Power(TO.phi() - iM4->phi(),2));
+// //                  // std::cout << "Looking at trigger to reco matching module" << std::endl;
+// //                   
+// //                   
+//                    std::cout << iTO << " " << tempDR1 << " " << tempDR2 << " " << tempDR3 << " " << tempDR4 << std::endl;
+//                    std::cout << TO.pt() << " " << iM1->pt() << " " << iM2->pt() <<  " " << iM3->pt() <<  " " << iM4->pt() << std::endl;
+//     
+//                    tempDRVec.push_back(tempDR1); tempDRVec.push_back(tempDR2); tempDRVec.push_back(tempDR3); tempDRVec.push_back(tempDR4);
+// //             //      std::cout << "tempDRVec.at(0)  " << tempDRVec.at(0) << std::endl; 
+//                    int minElementIndex = std::min_element(tempDRVec.begin(),tempDRVec.end()) - tempDRVec.begin();
+//                    std::cout << "minElementIndex  " << minElementIndex << std::endl;
+// //                   
+//                   std::cout << "Collection  " << TO.collection() << std::endl; //this shows us that the duplicates are likely the same muon that has passed
+// //               //different triggers. The ones that print out as being the same are listed in each case as being part of a different collection each time
+// //               //To handle the fact that there are duplicates, when we do the matching, we use the more intensive matching I've done below as opposed to the simpler
+// //               // matching of  if (tempDR1<0.1 || tempDR2<0.1 || tempDR3<0.1 || tempDR4<0.1)
+// //                  //               matched++;
+// //                  //that was initially suggested by S.L.
+// //               
+//         
+//                   double minElement = *std::min_element(tempDRVec.begin(), tempDRVec.end());
+//                   std::cout << "minElement  " << minElement << std::endl;
+//                   histContainer_["trigDR"]->Fill(minElement); //trigDR is a histo of the trig Mu-Reco Mu pair for a given quad that has the smallest separation in deltaR 
+//                   
+// //                   
+//                   if (trigMatched == 0){
+//                     if (minElement < trigMatchDRCut){
+//                       trigMatched++;
+//                       minElementIndexVec.push_back(minElementIndex);
+//                       std::cout << "minElementIndexVec.at(0)  " << minElementIndexVec.at(0) << std::endl;
+//                       std::cout << "trigMatched is   " << trigMatched << std::endl;
+//                     }
+//                   
+//                   }
+//         //        } //I just commented this out 
+// //                   
+// //                 //  std::vector<int> testVec;
+// // //                  testVec.push_back(0);
+// // //                  std::cout << "testVec.at(0)  " << testVec.at(0) << std::endl; 
+// // //                  if ( std::count(testVec.begin(), testVec.end(), 1) ) {
+// // //                     std::cout << "true, 1 is found" << std::endl;
+// // //                  }
+// // //                  
+// // //                  if ( std::count(testVec.begin(), testVec.end(), 1) == 0 ) {
+// // //                     std::cout << "false, 1 is NOT found" << std::endl;
+// // //                  }
+// //                  
+// //            //      std::cout << "minElementIndex is:  " <<  minElementIndex << std::endl;
+// //            //      for (unsigned int i =0; i < minElementIndexVec.size(); i++){
+// //              //      std::cout << "minElementIndexVec.at(i)  " << minElementIndexVec.at(i) << std::endl; 
+// //              //    }
+// //                  
+//                  if (trigMatched > 0){
+//                //    std::cout << "Entered test area" << std::endl;
+//                    if ( std::count(minElementIndexVec.begin(), minElementIndexVec.end(), minElementIndex) == 0 ){
+//                  //    std::cout << "Entered here line 1077" << std::endl; 
+//                      if (minElement < trigMatchDRCut){
+//                        trigMatched++;
+//                        std::cout << "trigMatched > 1  " << trigMatched << std::endl; 
+//                        minElementIndexVec.push_back(minElementIndex);
+//                      }
+//                    
+//                    }
+//                  }
+//              }     
 //                    
 //                   
 //          //          if (trigMatched > 0){
@@ -2627,7 +2627,7 @@ void ZmuonAnalyzer::analyze(const edm::Event& iEvent, const edm::EventSetup& iSe
                 
                 //making sure this is right...
                 //quadHasHowManyTrigMatches.push_back(totalTrigMatched);
-                quadHasHowManyTrigMatches.push_back(trigMatched);
+//                quadHasHowManyTrigMatches.push_back(trigMatched);
                 quadComesFromEvtWithThisManyMu.push_back((int)muons->size()); // this isn't exactly the helpful number we want, we want to know how many GOOD (passing our cuts) muons are in a given event
                 sum4LepCharges.push_back(iM1->charge() + iM2->charge() + iM3->charge() + iM4->charge());
                 
