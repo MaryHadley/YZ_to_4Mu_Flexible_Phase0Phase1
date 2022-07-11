@@ -24,7 +24,7 @@ if __name__ == '__main__':
     
    
   # 2017 Common Configuration
-    config.General.workArea      = 'Zmuon_DataJobs_UL2017BC_DoubleMu_4May2022_10LSPerJob'
+    config.General.workArea      = 'Zmuon_DataJobs_UL2017BC_DoubleMu_12July2022_10LSPerJob'
     config.General.transferLogs = False
 #    config.JobType.maxMemoryMB = 5000 #Let's try the default to start and see if it works 
 #    config.JobType.maxJobRuntimeMin = 2750 #Let's try the default to start and see if it works 
@@ -59,41 +59,41 @@ if __name__ == '__main__':
     
 
     # Run2017B DoubleMu
-    config.General.requestName = 'DoubleMuUL_Run2017B_4May2022_10LSPerJob' 
+    config.General.requestName = 'DoubleMuUL_Run2017B_12July2022_10LSPerJob' 
     config.Data.inputDataset   = '/DoubleMuon/Run2017B-09Aug2019_UL2017-v1/MINIAOD' 
-    config.Data.outLFNDirBase  = '/store/user/mhadley/Zmuon_DataJobs_DiMu_UL2017B_4May2022_10LSPerJob'
+    config.Data.outLFNDirBase  = '/store/user/mhadley/Zmuon_DataJobs_DiMu_UL2017B_12July2022_10LSPerJob'
     p = Process(target=submit, args=(config,))
     p.start()
     p.join()
     
   # Run2017C DoubleMu
-    config.General.requestName = 'DoubleMuUL_Run2017C_4May2022_10LSPerJob' 
+    config.General.requestName = 'DoubleMuUL_Run2017C_12July2022_10LSPerJob' 
     config.Data.inputDataset   = '/DoubleMuon/Run2017C-09Aug2019_UL2017-v1/MINIAOD'
-    config.Data.outLFNDirBase  =  '/store/user/mhadley/Zmuon_DataJobs_DiMu_UL2017C_4May2022_10LSPerJob'
+    config.Data.outLFNDirBase  =  '/store/user/mhadley/Zmuon_DataJobs_DiMu_UL2017C_12July2022_10LSPerJob'
     p = Process(target=submit, args=(config,))
     p.start()
     p.join()
 
   # Run2017D DoubleMu
-    config.General.requestName = 'DoubleMuUL_Run2017D_9July2022_10LSPerJob' 
+    config.General.requestName = 'DoubleMuUL_Run2017D_12July2022_10LSPerJob' 
     config.Data.inputDataset   = '/DoubleMuon/Run2017D-09Aug2019_UL2017-v1/MINIAOD' 
-    config.Data.outLFNDirBase  = '/store/user/mhadley/Zmuon_DataJobs_DiMu_UL2017D_9July2022_10LSPerJob' 
+    config.Data.outLFNDirBase  = '/store/user/mhadley/Zmuon_DataJobs_DiMu_UL2017D_12July2022_10LSPerJob' 
     p = Process(target=submit, args=(config,))
     p.start()
     p.join()
     
 #   Run2017E DoubleMu    
-    config.General.requestName = 'DoubleMuUL_Run2017E_9July2022_10LSPerJob' 
+    config.General.requestName = 'DoubleMuUL_Run2017E_12July2022_10LSPerJob' 
     config.Data.inputDataset   = '/DoubleMuon/Run2017E-09Aug2019_UL2017-v1/MINIAOD'
-    config.Data.outLFNDirBase  =  '/store/user/mhadley/Zmuon_DataJobs_DiMu_UL2017E_9July2022_10LSPerJob' 
+    config.Data.outLFNDirBase  =  '/store/user/mhadley/Zmuon_DataJobs_DiMu_UL2017E_12July2022_10LSPerJob' 
     p = Process(target=submit, args=(config,))
     p.start()
     p.join()
     
   #  Run2017F DoubleMu    
-    config.General.requestName = 'DoubleMuUL_Run2017F_9July2022_10LSPerJob' 
+    config.General.requestName = 'DoubleMuUL_Run2017F_12July2022_10LSPerJob' 
     config.Data.inputDataset   = '/DoubleMuon/Run2017F-09Aug2019_UL2017-v1/MINIAOD'
-    config.Data.outLFNDirBase  =  '/store/user/mhadley/Zmuon_DataJobs_DiMu_UL2017F_9July2022_10LSPerJob' 
+    config.Data.outLFNDirBase  =  '/store/user/mhadley/Zmuon_DataJobs_DiMu_UL2017F_12July2022_10LSPerJob' 
     p = Process(target=submit, args=(config,))
     p.start()
     p.join()
@@ -101,9 +101,9 @@ if __name__ == '__main__':
 
 #Was a 5 TeV run, Do NOT use (if you try to submit it to Crab, the lumi mask saves you, as crab finds no events from Era G in the Golden JSON, so you just get a SUBMITFAILED message)
   #  Run2017G DoubleMu    
-#     config.General.requestName = 'DoubleMuUL_Run2017G_9July2022_10LSPerJob' 
+#     config.General.requestName = 'DoubleMuUL_Run2017G_12July2022_10LSPerJob' 
 #     config.Data.inputDataset   = '/DoubleMuon/Run2017G-09Aug2019_UL2017-v1/MINIAOD'
-#     config.Data.outLFNDirBase  =  '/store/user/mhadley/Zmuon_DataJobs_DiMu_UL2017G_9July2022_10LSPerJob' 
+#     config.Data.outLFNDirBase  =  '/store/user/mhadley/Zmuon_DataJobs_DiMu_UL2017G_12July2022_10LSPerJob' 
 #     p = Process(target=submit, args=(config,))
 #     p.start()
 #     p.join()

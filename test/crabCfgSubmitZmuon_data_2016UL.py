@@ -24,7 +24,7 @@ if __name__ == '__main__':
     
    
   # 2016 Common Configuration
-    config.General.workArea      = 'Zmuon_DataJobs_UL2016BCDEFGH_DoubleMu_9July2022_10LSPerJob'
+    config.General.workArea      = 'Zmuon_DataJobs_UL2016BCDEFGH_DoubleMu_12July2022_10LSPerJob'
     config.General.transferLogs = False
 #    config.JobType.maxMemoryMB = 5000 #Let's try the default to start and see if it works 
 #    config.JobType.maxJobRuntimeMin = 2750 #Let's try the default to start and see if it works 
@@ -57,41 +57,41 @@ if __name__ == '__main__':
     
 
     # Run2016B DoubleMu HIPM ver1
-    config.General.requestName = 'DoubleMuUL_Run2016B_HIPM_ver1_9July2022_10LSPerJob' 
+    config.General.requestName = 'DoubleMuUL_Run2016B_HIPM_ver1_12July2022_10LSPerJob' 
     config.Data.inputDataset   = '/DoubleMuon/Run2016B-21Feb2020_ver1_UL2016_HIPM-v1/MINIAOD' 
-    config.Data.outLFNDirBase  = '/store/user/mhadley/Zmuon_DataJobs_DiMu_UL2016B_HIPM_ver1_9July2022_10LSPerJob'
+    config.Data.outLFNDirBase  = '/store/user/mhadley/Zmuon_DataJobs_DiMu_UL2016B_HIPM_ver1_12July2022_10LSPerJob'
     p = Process(target=submit, args=(config,))
     p.start()
     p.join()
     
   # Run2016B DoubleMu HIPM ver2
-    config.General.requestName = 'DoubleMuUL_Run2016B_HIPM_ver2_9July2022_10LSPerJob' 
+    config.General.requestName = 'DoubleMuUL_Run2016B_HIPM_ver2_12July2022_10LSPerJob' 
     config.Data.inputDataset   = '/DoubleMuon/Run2016B-21Feb2020_ver2_UL2016_HIPM-v1/MINIAOD'
-    config.Data.outLFNDirBase  =  '/store/user/mhadley/Zmuon_DataJobs_DiMu_UL2016B_HIPM_ver2_9July2022_10LSPerJob'
+    config.Data.outLFNDirBase  =  '/store/user/mhadley/Zmuon_DataJobs_DiMu_UL2016B_HIPM_ver2_12July2022_10LSPerJob'
     p = Process(target=submit, args=(config,))
     p.start()
     p.join()
 
   # Run2016C DoubleMu HIPM
-    config.General.requestName = 'DoubleMuUL_Run2016C_HIPM_9July2022_10LSPerJob' 
+    config.General.requestName = 'DoubleMuUL_Run2016C_HIPM_12July2022_10LSPerJob' 
     config.Data.inputDataset   = '/DoubleMuon/Run2016C-21Feb2020_UL2016_HIPM-v1/MINIAOD' 
-    config.Data.outLFNDirBase  = '/store/user/mhadley/Zmuon_DataJobs_DiMu_UL2016C_HIPM_9July2022_10LSPerJob' 
+    config.Data.outLFNDirBase  = '/store/user/mhadley/Zmuon_DataJobs_DiMu_UL2016C_HIPM_12July2022_10LSPerJob' 
     p = Process(target=submit, args=(config,))
     p.start()
     p.join()
     
 #   Run2016D DoubleMu  HIPM  
-    config.General.requestName = 'DoubleMuUL_Run2016D_HIPM_9July2022_10LSPerJob' 
+    config.General.requestName = 'DoubleMuUL_Run2016D_HIPM_12July2022_10LSPerJob' 
     config.Data.inputDataset   = '/DoubleMuon/Run2016D-21Feb2020_UL2016_HIPM-v1/MINIAOD'
-    config.Data.outLFNDirBase  =  '/store/user/mhadley/Zmuon_DataJobs_DiMu_UL2016D_HIPM_9July2022_10LSPerJob' 
+    config.Data.outLFNDirBase  =  '/store/user/mhadley/Zmuon_DataJobs_DiMu_UL2016D_HIPM_12July2022_10LSPerJob' 
     p = Process(target=submit, args=(config,))
     p.start()
     p.join()
     
   #  Run2016E DoubleMu HIPM    
-    config.General.requestName = 'DoubleMuUL_Run2016E_HIPM_9July2022_10LSPerJob' 
+    config.General.requestName = 'DoubleMuUL_Run2016E_HIPM_12July2022_10LSPerJob' 
     config.Data.inputDataset   = '/DoubleMuon/Run2016E-21Feb2020_UL2016_HIPM-v1/MINIAOD'
-    config.Data.outLFNDirBase  =  '/store/user/mhadley/Zmuon_DataJobs_DiMu_UL2016E_HIPM_9July2022_10LSPerJob' 
+    config.Data.outLFNDirBase  =  '/store/user/mhadley/Zmuon_DataJobs_DiMu_UL2016E_HIPM_12July2022_10LSPerJob' 
     p = Process(target=submit, args=(config,))
     p.start()
     p.join()
@@ -99,34 +99,34 @@ if __name__ == '__main__':
 #Start here next time, you are about to do 2016F
 
   #  Run2016F HIPM DoubleMu    
-    config.General.requestName = 'DoubleMuUL_Run2016F_HIPM_9July2022_10LSPerJob' 
+    config.General.requestName = 'DoubleMuUL_Run2016F_HIPM_12July2022_10LSPerJob' 
     config.Data.inputDataset   = '/DoubleMuon/Run2016F-21Feb2020_UL2016_HIPM-v1/MINIAOD'
-    config.Data.outLFNDirBase  =  '/store/user/mhadley/Zmuon_DataJobs_DiMu_UL2016F_HIPM_9July2022_10LSPerJob' 
+    config.Data.outLFNDirBase  =  '/store/user/mhadley/Zmuon_DataJobs_DiMu_UL2016F_HIPM_12July2022_10LSPerJob' 
     p = Process(target=submit, args=(config,))
     p.start()
     p.join()
     
     #  Run2016F DoubleMu    
-    config.General.requestName = 'DoubleMuUL_Run2016F_9July2022_10LSPerJob' 
+    config.General.requestName = 'DoubleMuUL_Run2016F_12July2022_10LSPerJob' 
     config.Data.inputDataset   = '/DoubleMuon/Run2016F-21Feb2020_UL2016-v1/MINIAOD'
-    config.Data.outLFNDirBase  =  '/store/user/mhadley/Zmuon_DataJobs_DiMu_UL2016F_9July2022_10LSPerJob' 
+    config.Data.outLFNDirBase  =  '/store/user/mhadley/Zmuon_DataJobs_DiMu_UL2016F_12July2022_10LSPerJob' 
     p = Process(target=submit, args=(config,))
     p.start()
     p.join()
     
      #  Run2016G DoubleMu    
-    config.General.requestName = 'DoubleMuUL_Run2016G_9July2022_10LSPerJob' 
+    config.General.requestName = 'DoubleMuUL_Run2016G_12July2022_10LSPerJob' 
     config.Data.inputDataset   = '/DoubleMuon/Run2016G-21Feb2020_UL2016-v1/MINIAOD'
-    config.Data.outLFNDirBase  =  '/store/user/mhadley/Zmuon_DataJobs_DiMu_UL2016G_9July2022_10LSPerJob' 
+    config.Data.outLFNDirBase  =  '/store/user/mhadley/Zmuon_DataJobs_DiMu_UL2016G_12July2022_10LSPerJob' 
     p = Process(target=submit, args=(config,))
     p.start()
     p.join()
     
     
      #  Run2016H DoubleMu    
-    config.General.requestName = 'DoubleMuUL_Run2016H_9July2022_10LSPerJob' 
+    config.General.requestName = 'DoubleMuUL_Run2016H_12July2022_10LSPerJob' 
     config.Data.inputDataset   = '/DoubleMuon/Run2016H-21Feb2020_UL2016-v1/MINIAOD'
-    config.Data.outLFNDirBase  =  '/store/user/mhadley/Zmuon_DataJobs_DiMu_UL2016H_9July2022_10LSPerJob' 
+    config.Data.outLFNDirBase  =  '/store/user/mhadley/Zmuon_DataJobs_DiMu_UL2016H_12July2022_10LSPerJob' 
     p = Process(target=submit, args=(config,))
     p.start()
     p.join()
