@@ -30,7 +30,7 @@ if __name__ == '__main__':
 #    config.JobType.maxJobRuntimeMin = 2750 #Let's try the default to start and see if it works 
     config.JobType.pluginName   = 'Analysis' 
     config.JobType.psetName     = 'ZmuonAnalyzer_cfg.py'
-    config.JobType.pyCfgParams = ["isMC=False", "triggerYear=2017"]
+    config.JobType.pyCfgParams = ["isMC=False"]
     config.JobType.allowUndistributedCMSSW = True
 #    config.JobType.sendExternalFolder = True #I don't have an CMSSW_BASE/external so I don't think I need this 
     config.Data.inputDBS        = 'global'    #Checked, this is what we need 
@@ -74,36 +74,36 @@ if __name__ == '__main__':
     p.start()
     p.join()
 
- #  # Run2017D DoubleMu
-#     config.General.requestName = 'DoubleMuUL_Run2017D_3May2022_10LSPerJob' 
-#     config.Data.inputDataset   = '/DoubleMuon/Run2017D-09Aug2019_UL2017-v1/MINIAOD' 
-#     config.Data.outLFNDirBase  = '/store/user/mhadley/Zmuon_DataJobs_DiMu_UL2017D_3May2022_10LSPerJob' 
-#     p = Process(target=submit, args=(config,))
-#     p.start()
-#     p.join()
-#     
-# #   Run2017E DoubleMu    
-#     config.General.requestName = 'DoubleMuUL_Run2017E_3May2022_10LSPerJob' 
-#     config.Data.inputDataset   = '/DoubleMuon/Run2017E-09Aug2019_UL2017-v1/MINIAOD'
-#     config.Data.outLFNDirBase  =  '/store/user/mhadley/Zmuon_DataJobs_DiMu_UL2017E_3May2022_10LSPerJob' 
-#     p = Process(target=submit, args=(config,))
-#     p.start()
-#     p.join()
-#     
-#   #  Run2017F DoubleMu    
-#     config.General.requestName = 'DoubleMuUL_Run2017F_3May2022_10LSPerJob' 
-#     config.Data.inputDataset   = '/DoubleMuon/Run2017F-09Aug2019_UL2017-v1/MINIAOD'
-#     config.Data.outLFNDirBase  =  '/store/user/mhadley/Zmuon_DataJobs_DiMu_UL2017F_3May2022_10LSPerJob' 
-#     p = Process(target=submit, args=(config,))
-#     p.start()
-#     p.join()
+  # Run2017D DoubleMu
+    config.General.requestName = 'DoubleMuUL_Run2017D_9July2022_10LSPerJob' 
+    config.Data.inputDataset   = '/DoubleMuon/Run2017D-09Aug2019_UL2017-v1/MINIAOD' 
+    config.Data.outLFNDirBase  = '/store/user/mhadley/Zmuon_DataJobs_DiMu_UL2017D_9July2022_10LSPerJob' 
+    p = Process(target=submit, args=(config,))
+    p.start()
+    p.join()
+    
+#   Run2017E DoubleMu    
+    config.General.requestName = 'DoubleMuUL_Run2017E_9July2022_10LSPerJob' 
+    config.Data.inputDataset   = '/DoubleMuon/Run2017E-09Aug2019_UL2017-v1/MINIAOD'
+    config.Data.outLFNDirBase  =  '/store/user/mhadley/Zmuon_DataJobs_DiMu_UL2017E_9July2022_10LSPerJob' 
+    p = Process(target=submit, args=(config,))
+    p.start()
+    p.join()
+    
+  #  Run2017F DoubleMu    
+    config.General.requestName = 'DoubleMuUL_Run2017F_9July2022_10LSPerJob' 
+    config.Data.inputDataset   = '/DoubleMuon/Run2017F-09Aug2019_UL2017-v1/MINIAOD'
+    config.Data.outLFNDirBase  =  '/store/user/mhadley/Zmuon_DataJobs_DiMu_UL2017F_9July2022_10LSPerJob' 
+    p = Process(target=submit, args=(config,))
+    p.start()
+    p.join()
 
 
 #Was a 5 TeV run, Do NOT use (if you try to submit it to Crab, the lumi mask saves you, as crab finds no events from Era G in the Golden JSON, so you just get a SUBMITFAILED message)
   #  Run2017G DoubleMu    
-#     config.General.requestName = 'DoubleMuUL_Run2017G_3May2022_10LSPerJob' 
+#     config.General.requestName = 'DoubleMuUL_Run2017G_9July2022_10LSPerJob' 
 #     config.Data.inputDataset   = '/DoubleMuon/Run2017G-09Aug2019_UL2017-v1/MINIAOD'
-#     config.Data.outLFNDirBase  =  '/store/user/mhadley/Zmuon_DataJobs_DiMu_UL2017G_3May2022_10LSPerJob' 
+#     config.Data.outLFNDirBase  =  '/store/user/mhadley/Zmuon_DataJobs_DiMu_UL2017G_9July2022_10LSPerJob' 
 #     p = Process(target=submit, args=(config,))
 #     p.start()
 #     p.join()
